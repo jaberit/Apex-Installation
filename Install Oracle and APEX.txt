@@ -1,0 +1,57 @@
+এপেক্স ফোল্ডারটি যতটুকু সম্ভব যে কোন ড্রাইভের মধ্যে কোন ফ্লোডার ছাড়া রাখতে হবে,
+যেমন--  F:\apex (অর্থাৎ F: ড্রাইভের ভিতরে সরাসরি apex ফোল্ডারটি রাখা। 
+=========================================
+@apxremov.sql D:\apex
+===================================================================
+(All command are available in HERE)
+#  in Sqlplus
+
+# select version from dba_registry where comp_id ='APEX';
+ ===========================
+ In CMD Run as admin
+
+# CD   (Apex file location) CD F:\apex (প্রথমে CD লিখে F:\apex ফোল্ডার এবং এপেক্স ফাইলের নাম লিখতে হবে)
+
+# C:     (Apex location drive name) F:\  (শুধু ফোল্ডার লিখে ইন্টার দিতে হবে)
+
+# sqlplus /nolog
+# conn sys as sysdba
+# password
+
+conn sys@xe as sysdba
+conn sys/sys@xe
+
+# @apexins.sql sysaux sysaux temp /i/
+
+# sqlplus /nolog
+# conn sys as sysdba
+# password
+
+# @apxchpwd.sql
+
+# user: solutionwizard--------------------  (My new username-admin, pass-Ad_123min)
+# Pass: Ad_123min
+  (password roul it must contain at list 1 capital letter 1 small letter 1 special character and 1 numeric character or number)
+
+
+# @apxldimg.sql   (Apex folder location)   @apxldimg.sql H:\
+
+# @apex_epg_config.sql  (Apex folder location)  @apex_epg_config.sql H:\
+
+# select status from dba_registry where comp_id ='APEX';
+# select version from dba_registry where comp_id ='APEX';
+
+# alter user anonymous account unlock;
+
+# select dbms_xdb.gethttpport from dual;
+      if it is = 0 
+
+# exec dbms_xdb.sethttpport (8085);
+# commit;
+
+
+Url LINK:
+http://localhost:8085/apex/apex_admin
+http://localhost:8085/apex/f?p=4550:1...
+
+http://127.0.0.1:8080/apex/f?p=4550:1:9261569101344:::::

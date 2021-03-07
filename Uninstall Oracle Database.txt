@@ -1,0 +1,81 @@
+How To Uninstall Oracle Database 11g
+
+Right Click on This PC icon and Select “Properties”.
+“Advance System Settings”
+“System Properties” 
+“Advance” Tab and select 
+“Environment Variable” 
+
+
+Quick Tip
+The environment variable string will more or less look something like this 
+C:\app\Mann\product\11.2.0\dbhome_1\bin (unless you have changed it during the installation).
+
+how to uninstall oracle database 11g from windows 10 by manish sharma
+
+Step 2: Delete the registries of oracle database 11g
+Before jumping onto this step, I want to say that be careful while deleting the registries. 
+One single wrong move could prove to be catastrophic.
+
+There are windows services running in the background which take care of 
+proper working of oracle software on the windows system. 
+These windows services are backed up by windows registries and in order 
+to completely uninstall oracle 11g from your windows 10 we need to get rid of 
+these services attached with your oracle 11g server software. This can only 
+happen when we delete those registries which are providing the background support 
+to these oracle database services.
+
+How to Delete Oracle Database Registries manually
+All the windows registries are organized into the Registry Editor in Windows system. 
+Thus to delete them we need to first open the Registry Editor. 
+For that first open up your Run Dialogue Box by pressing Windows Key and ‘R’ key simultaneously.
+
+Once you successfully launch your Run Dialogue Box. Write ‘regedit’ into it and press ok.
+Doing so will open up the windows registry editor.
+
+
+HKEY_LOCAL_MACHINE –> SOFTWARE –> ORACLE
+
+HKEY_LOCAL_MACHINE –> SYSTEM –> CurrentControlSet –> SERVICES
+
+List of Oracle Database Registries for background services.
+
+Oracle11
+OracleDBConsoleorcl
+OracleJobSchedulerORCL
+OracleMTSRecoveryService
+OracleOraDb11g_home1ClrAgent
+OracleOraDb11g_home1TNSListener
+OracleServiceORCL
+OracleVssWriterORCL
+In third and last two registries ORCL is default SID for the Oracle database 11g Enterprise Edition (which is installed on my system) this could be different in your case. Make sure you delete only the registries shown above in the list.
+
+
+Step 3: Restart your PC
+In order to bring these changes to effect, you must restart your system.
+
+Step 4: Wipe out the oracle mess.
+Once all the above steps are properly done you are free to delete all the folders of oracle database 11g from your windows 10 system.
+
+Let’s start with Oracle home.
+
+What is Oracle Home?
+Oracle Home is the directory where oracle database software is installed in your operating system’s file structure.
+
+In default installation oracle home is located in the C drive or in the main drive in which your OS is installed and named as APP. In order to delete your database software go to your main drive (in my case it’s C) and then go to APP. Thereafter go to the directory with your username. Here select all the files and delete them. If you want to save backups then do not delete flash_recovery_area.
+
+Clean The Program File.
+Next go to your Program File folder which is placed in your main drive where OS is installed and here locate a folder with the name “Oracle” and delete it.
+
+Clean The Start Menu.
+At the end delete the entry from your start menu. In order to access the start menu entries in your windows 10 system, copy and paste the path given below either in the Run command box or directly into your file explorer. 
+
+Start Menu Entry Path
+C:\ProgramData\Microsoft\Windows\Start Menu\Programs
+
+Now find the oracle database 11g folder. In default case the name of the folder should look something like this ‘Oracle – OraDb11g_home1’ (This name can be different in your case) locate and delete this folder.
+
+And Lastly, Don’t Forget…
+After doing all these steps restarting your system is highly recommended.
+
+Now your windows system is clean from oracle database 11g. That is a quick tutorial on how to uninstall oracle database 11g from windows 10 manually. Hope you enjoyed reading it. Please do make sure to share this blog on your social media.

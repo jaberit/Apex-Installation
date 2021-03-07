@@ -1,0 +1,10 @@
+Run Cmd Mode cd (Pest>path apex software)
+sqlplus > sys as sysdba(Connect)
+@apexins.sql sysaux sysaux temp /i/
+@apex_epg_config.sql (Pest>path Drive apex software)
+alter user anonymous account unlock;
+@apxconf.sql
+Enter the administrator's username [ADMIN] <Farhad>
+Enter Farhad's email [Farhad] farhadhossain2570@gmail.com
+Enter Admin's password [] ********
+----------------------------------------------------------

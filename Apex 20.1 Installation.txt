@@ -1,0 +1,41 @@
+Setup
+Download the APEX software.
+
+--- Create a new tablespace to act as the default tablespace for APEX.
+C:\Users\server>sqlplus sys/oracle@main as sysdb
+create tablespace apex datafile 'C:\oracle18\oradata\ORCL\apex01.dbf'
+size 6G autoextend on next 10m
+segment space management auto
+extent management local;
+
+
+--- Connect to SQL*Plus as the SYS user and run the "apexins.sql" script, specifying the relevant tablespace names and image URL.
+--- @apexins.sql tablespace_apex tablespace_files tablespace_temp images
+D:\Apex_Soft\apex> sqlplus sys/oracle@main as sysdba
+@apexins.sql apex apex TEMP /i/
+
+--- Run apxldimg passing the file system path to the base directory where the Oracle Application Express software was unzipped as shown in the following example:
+@apxldimg  D:\Apex_Soft 
+Note: Where the Master Path mean if apex folder avalaible in D:\Apex_Soft\apex then Master folder will be select like D:\Apex_Soft
+
+---  Change the password and unlock the APEX_PUBLIC_USER account. This will be used for any Database Access Descriptors (DADs).
+ALTER USER ANONYMOUS IDENTIFIED BY ANONYMOUS ACCOUNT UNLOCK; 
+ALTER USER XDB IDENTIFIED BY XDB ACCOUNT UNLOCK; 
+ALTER USER APEX_PUBLIC_USER IDENTIFIED BY APEX_PUBLIC_USER ACCOUNT UNLOCK; 
+ALTER USER FLOWS_FILES IDENTIFIED BY FLOWS_FILES ACCOUNT UNLOCK;
+
+--- Once complete, change the admin password by running the "apxchpwd.sql" scripts as the SYS user.
+@apxchpwd
+
+
+--- Check the Port for Apex
+SELECT DBMS_XDB.gethttpport FROM DUAL;
+EXEC DBMS_XDB.sethttpport(9090);
+
+--- Run the "apex_epg_config.sql" script, passing in the base directory of the installation software as a parameter.
+@apex_epg_config  D:\Apex_Soft\ 
+Note:  Select the Main Directory Where Oradata, Product and other folders will be available So select the main Directory.
+
+
+--- Create the APEX_LISTENER and APEX_REST_PUBLIC_USER users by running the "apex_rest_config.sql" script.
+@apex_rest_config
